@@ -16,7 +16,7 @@ var frames = [];
 
 module.exports = (url, done) => {
 
-    var video = youtubedl(url, ['--format=17']); // 176 x 144 @ 12fps
+    var video = youtubedl(url, ['--format=worst']); // changed as at least some videos are not available in format 17
     video.on('info', info => {
         console.log('YouTube Download started');
         console.log('filename: ' + info._filename);
