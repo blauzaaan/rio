@@ -115,7 +115,8 @@ const sendText = (text) => {
             generateFrames(text, color);
 
             currentGUID = uuid.v1();
-            sendData(currentGUID, 20);
+            delay = (-2*config.matrix.width+150)/(config.text_speed_factor|1);
+            sendData(currentGUID, delay);
         })
         .catch(err => {
             console.log('Error outputting from text input', err);
@@ -126,9 +127,7 @@ const sendText = (text) => {
 
         currentGUID = uuid.v1();
         delay = (-2*config.matrix.width+150)/(config.text_speed_factor|1);
-        console.log("delay="+delay);
         sendData(currentGUID, delay);
-//        sendData(currentGUID, 20);
     }
 }
 

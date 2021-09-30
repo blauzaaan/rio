@@ -5,7 +5,7 @@ module.exports = {
     matrix: {
         width: 60,
         height: 34
-     },
+    },
     use8bitColors: true,
     text_speed_factor: 4, //text speed is (-2*matrix.width+150)/text_speed_factor. use factor to adjust
     sendToConsole: true,
@@ -22,5 +22,5 @@ module.exports = {
     },
     queueing: true,
     imageInputDisplayTime: 5000, // Only relevant when queueing is enabled,
-    watson: false
+    watson: false //defunct service
 };
