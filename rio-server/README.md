@@ -41,6 +41,12 @@ Installs node.js
 
 `sudo apt-get install libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++`
 
+## Video input support
+
+while the original setup back in 2017 required compiling ffmpeg from source, now at least for YouTube videos, it's sufficient to just do:
+
+`sudo apt-get install ffmpeg`
+
 ## Install git (should already be installed)
 
 `sudo apt-get install git`
@@ -71,6 +77,3 @@ You will also need to edit the configuration in `rio-server/firmware/rpi/lowleve
 
 At this point you should be able to run rio-server and the rio logo will be displayed on your LED wall!
 
-# Video input support
-
-If you wish to utilise streaming video to your device you will need to install FFMPEG, this URL covers the instructions we used when building our wall https://owenashurst.com/?p=242.. 
