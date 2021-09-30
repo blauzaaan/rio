@@ -2,6 +2,7 @@ var Router = require('express').Router;
 var messageAPI = require('./slack-api');
 var textAPI = require('./text-api');
 var gifAPI = require('./gif-api');
+var videoAPI = require('./video-api');
 
 module.exports = function () {
     var api = Router();
@@ -12,6 +13,7 @@ module.exports = function () {
     });
     api.use('/text', textAPI());
     api.use('/gif', gifAPI());
+    api.use('/video', videoAPI());
 
     return api;
 };
