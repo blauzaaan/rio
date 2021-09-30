@@ -21,5 +21,5 @@ module.exports = {
     },
     queueing: true,
     imageInputDisplayTime: 5000, // Only relevant when queueing is enabled,
-    watson: true
+    watson: false //defunct service
 };
