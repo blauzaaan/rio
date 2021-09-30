@@ -33,14 +33,14 @@ const sendData = function (guid, delay, index = 0) {
 const generateFrames = (text, color = 'white') => {
     frames = [];
 
-    ctx.font = '32px Arial';
+    ctx.font = config.matrix.height + 'px Arial';
     var width = ctx.measureText(text).width;
     var num_frames = width;
     for (var i = 0; i < num_frames; i++) {
         var x = config.matrix.width - ((config.matrix.width + width) * (i / (num_frames - 1)));
         ctx.clearRect(0, 0, config.matrix.width, config.matrix.height);
         ctx.fillStyle = color;
-        ctx.fillText(text, x, 26);
+        ctx.fillText(text, x, config.matrix.height*0.75); //crude font metrics estimation, can be done better
         ctx.fillStyle = 'white';
         var imageData = ctx.getImageData(0, 0, config.matrix.width, config.matrix.height).data;
 
@@ -125,7 +125,10 @@ const sendText = (text) => {
         generateFrames(text);
 
         currentGUID = uuid.v1();
-        sendData(currentGUID, 20);
+        delay = (-2*config.matrix.width+150)/(config.text_speed_factor|1);
+        console.log("delay="+delay);
+        sendData(currentGUID, delay);
+//        sendData(currentGUID, 20);
     }
 }
 
