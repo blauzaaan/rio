@@ -1,0 +1,45 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.imagecont {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imagecard {
+  margin: 5pt;
+  padding: 5pt; 
+  text-align: center;
+  background-color: lightgray;
+  border: 1pt solid darkgray;
+  align-self: flex-start;
+}
+
+.imagecard.approved {
+  background-color: lightgreen;
+  border: 1pt solid darkgreen;
+}
+
+.imagecard.rejected {
+  background-color: lightpink;
+  border: 1pt solid darkred;
+}
+
+.imagecard.approved > button#approve {
+  display: none;
+}
+
+.imagecard.rejected > button#reject {
+  display: none;
+}
+
+img {
+  width:100pt;
+  border: 1pt solid grey;
+}

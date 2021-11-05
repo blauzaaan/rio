@@ -1,0 +1,39 @@
+extends layout
+block head
+  script(src="https://unpkg.com/dayjs@1.x/dayjs.min.js")
+  script(src="https://unpkg.com/dayjs@1.x/plugin/relativeTime.js")
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+
+block content
+
+  h1= title
+  - if(!title.includes('pending'))
+    a(href='./') pending
+  - else
+    | pending
+  |  | 
+  - if(!title.includes('approved'))
+    a(href='approved') approved
+  - else
+    | approved
+  |  | 
+  - if(!title.includes('rejected'))
+    a(href='rejected') rejected
+  - else
+    | rejected
+  script(src="/javascripts/list.js")
+  div.imagecont
+    each item in items
+      div.imagecard(id=item._id+'-cont' class=item.status)
+        img(src="data:image/gif;base64,"+item.file.toString('base64'), alt="")
+        br
+        = item._id
+        br
+        - date = item.submittime;
+        div.timeago(id=item._id+'-timeago')
+        script
+          = 'dates[\''+item._id+'-timeago\']='+date/1000+';'
+        br
+        button#approve(onclick="approve(\'"+item._id+"\')" style="color: green") ✔
+        | 
+        button#reject(onclick="reject(\'"+item._id+"\')" style="color: red") ✖

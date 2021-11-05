@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Sende ein Bild, GIF, oder Video auf das #{title}!
+  form(action="./upload", method="post", enctype="multipart/form-data") 
+    input(type="file", name="bild", required, accept=".gif,image/gif")
+    br
+    input(type="text", name="comment", placeholder="Dein Name, Kommentar")
+    br
+    input(type="submit", value="senden")
