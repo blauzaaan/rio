@@ -71,3 +71,16 @@ if (config.sendToPi) {
 }
 
 module.exports = app;
+
+// from: https://hackernoon.com/graceful-shutdown-in-nodejs-2f8f59d1c357
+process.on('SIGTERM', () => {
+    console.info('SIGTERM signal received.');
+    getTextData(' '); //crudely clearing display by sending a space character as text
+    process.exit(0);
+  });
+//doesn't work on windows - https://stackoverflow.com/a/47314406
+process.on('SIGINT', () => {
+    console.info('CTRL_BREAK_EVENT (SIGINT) signal received.');
+    getTextData(' '); //crudely clearing display by sending a space character as text
+    process.exit(0);
+  });
