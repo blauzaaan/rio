@@ -36,31 +36,21 @@ const resizeFrame = function (arr, index) {
   }
 }
 
-module.exports = (url, done) => {
-  // Download the GIF
-  request.get(url, (error, response, body) => {
-    if (response.statusCode == 200) {
-      // Decompress GIF into individual patch frames
-      var gif = new GIF(new Buffer(body));
-      frames = gif.decompressFrames(true);
-      var delay = frames[0].delay;
+module.exports = (gif, done) => {
+  frames = gif.decompressFrames(true);
+  var delay = frames[0].delay;
 
-      // Create canvas to render GIF into at full size
-      canvas = new Canvas(frames[0].dims.width, frames[0].dims.height);
-      ctx = canvas.getContext('2d');
+  // Create canvas to render GIF into at full size
+  canvas = new Canvas(frames[0].dims.width, frames[0].dims.height);
+  ctx = canvas.getContext('2d');
 
-      // Resize frames using canvas
-      var resizedGIF = [];
-      resizeFrame(resizedGIF);
+  // Resize frames using canvas
+  var resizedGIF = [];
+  resizeFrame(resizedGIF);
 
-      // Pass results back to parent process
-      done({
-        frames: resizedGIF,
-        delay
-      });
-    } else {
-      // Send back an error
-      done({ err: 'Failed to download GIF' });
-    }
+  // Pass results back to parent process
+  done({
+    frames: resizedGIF,
+    delay
   });
 };

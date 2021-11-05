@@ -78,7 +78,7 @@ process.on('SIGTERM', () => {
     getTextData(' '); //crudely clearing display by sending a space character as text
     process.exit(0);
   });
-//doesn't work on windows - https://stackoverflow.com/a/47314406
+//on windows (doesn't prevent "Terminate batch job (Y/N)" prompt) - https://stackoverflow.com/a/47314406
 process.on('SIGINT', () => {
     console.info('CTRL_BREAK_EVENT (SIGINT) signal received.');
     getTextData(' '); //crudely clearing display by sending a space character as text

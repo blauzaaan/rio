@@ -1,4 +1,4 @@
 var inputWorker = require('../input-worker');
 module.exports = (url) => {
-    inputWorker('gif-worker', url)
+    inputWorker('gif-url-worker', url)
 };
