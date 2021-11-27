@@ -10,7 +10,9 @@ import PongVSPage from './js/pages/PongVSPage';
 import SnakePage from './js/pages/SnakePage';
 import BreakoutPage from './js/pages/BreakoutPage';
 import AtariPage from './js/pages/AtariPage';
-import NesboxPage from './js/pages/NesboxPage';
+//disabled nexbox due to missing required roms
+//import NesboxPage from './js/pages/NesboxPage';
+// also removed         <Route path="nesbox" name="NESBox" component={NesboxPage}/>      from list below
 import JSNESPage from './js/pages/JSNESPage';
 
 module.exports = (
@@ -22,7 +24,6 @@ module.exports = (
         <Route path="particles" component={ParticlesPage}/>
         <Route path="breakout" name="Breakout" component={BreakoutPage}/>
         <Route path="atari" name="Atari 2600" component={AtariPage}/>
-        <Route path="nesbox" name="NESBox" component={NesboxPage}/>
         <Route path="jsnes" name="JSNES" component={JSNESPage}/>
     </Route>
 );
