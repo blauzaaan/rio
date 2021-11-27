@@ -39,7 +39,9 @@ module.exports = (url, done) => {
             .on('end', () => {
                 //console.log('Frame zero is', frames[0].length, 'bytes which is', frames[0].length / 3, 'pixels');
                 console.log('Processing finished !', frames.length, 'frames');
-                fs.unlink('output.mp4');
+                fs.unlink('output.mp4', (err) => {
+                    if (err) throw err;
+                  });
                 done({
                     frames,
                     delay: 1000/12

@@ -30,7 +30,7 @@ spawnThread = (input, data) => {
     const thread = spawn('./inputs/' + input)
         .send(data)
         .on('progress', progress => {
-            console.log(`Processing ${input == 'gif-worker' ? 'GIF' : 'video'} [${data}]: ${progress}%`);
+            console.log(`Processing ${input} [${data}]: ${progress}%`);
         })
         .on('message', message => {
             if (message.err) {
@@ -49,7 +49,7 @@ spawnThread = (input, data) => {
 
 module.exports = (input, data) => {
     if (config.queueing && !canSendFrame()) {
-        addToQueue(input == 'gif-worker' ? 'GIF' : 'video', () => spawnThread(input, data));
+        addToQueue(input, () => spawnThread(input, data));
         return;
     }
     // Send URL to worker thread

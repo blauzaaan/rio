@@ -5,8 +5,8 @@
   "description": "Converts data into suitable format for LED walls (or any other output)",
   "main": "./index.js",
   "engines": {
-    "node": "6.x",
-    "npm": "3.10.x"
+    "node": ">=16.x",
+    "npm": "8.1.x"
   },
   "scripts": {
     "start": "node index.js",
@@ -16,8 +16,7 @@
     "@slack/client": "^4.8.0",
     "ansi-256-colors": "^1.1.0",
     "body-parser": "^1.18.3",
-    "canvas": "1.6.3",
-    "cors": "^2.7.1",
+    "canvas": "^2.8.0",
     "express": "^4.16.4",
     "fluent-ffmpeg": "^2.1.0",
     "lodash": "^4.17.11",
@@ -29,6 +28,6 @@
     "twit": "^2.2.11",
     "uuid": "^3.1.0",
     "ws": "^6.1.2",
-    "youtube-dl": "1.13.1"
+    "youtube-dl": "^1.13.1"
   }
 }

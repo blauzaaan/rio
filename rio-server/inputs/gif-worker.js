@@ -5,8 +5,7 @@ global.window = global;
 const request = require('request').defaults({ encoding: null });
 const _ = require('lodash');
 const config = require('../config');
-const Canvas = require('canvas'),
-  ImageData = Canvas.ImageData;
+const { createCanvas, Canvas, ImageData } = require('canvas');
 
 var frames = [];
 var resizeCanvas = new Canvas(config.matrix.width, config.matrix.height);

@@ -4,7 +4,7 @@ const uuid = require('uuid');
 
 const _ = require('lodash');
 const config = require('../config');
-const Canvas = require('canvas'),
+const { createCanvas, Canvas } = require('canvas'),
       Image = Canvas.Image;
 
 var resizeCanvas = new Canvas(config.matrix.width, config.matrix.height);

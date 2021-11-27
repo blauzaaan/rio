@@ -1,7 +1,6 @@
 global.fetch = require('node-fetch'); // polyfil
 const http = require('http');
 const express = require('express');
-const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3001;
@@ -51,8 +50,10 @@ const startup = () => {
     //
     // getVideoData('https://www.youtube.com/watch?v=wS8ZC271eMQ');
 
+    //current, working examples
+    //getVideoData('https://www.youtube.com/watch?v=MLFWLJSPN7I');
     //getGIFData('https://64.media.tumblr.com/fc031ba2e1d62b29056e925dcaeb3e2b/tumblr_ngqeny4hUE1rpj04no1_500.gif');
-    getTextData('test');
+    //getTextData('Heya, welcome to RIO! Come in and enjoy the show!');
 }
 
 // todo: This should be improved
